@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\giay;
+use DB;
 
 class HomeController extends Controller
 {
@@ -23,6 +25,9 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+        $data = giay::paginate(10);
+        // dd($data);
+        return view('admin.allitem2', compact('data'));
+        // return view('admin.allitem');
     }
 }

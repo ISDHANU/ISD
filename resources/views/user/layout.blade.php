@@ -5,9 +5,9 @@
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <link rel="stylesheet" href="css/bootstrap3.css" />
-	<link rel="stylesheet" href="css/style.css" />
-	<link rel="stylesheet" href="css/responsive.css" />
+    <link rel="stylesheet" href="{{asset('css/bootstrap3.css')}}" />
+	<link rel="stylesheet" href="{{asset('css/style.css')}}" />
+	<link rel="stylesheet" href="{{asset('css/responsive.css')}}" />
 	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css">
 
 </head>
@@ -22,7 +22,7 @@
 				</div>
 			</div>
 			<div class="logo">
-				<img src="images/logo-default.png">
+				<img src="{{asset('images/logo-default.png')}}">
 			</div>
 			<div class="menu">
 				<div class="bar_menu" id="open_contact">
@@ -41,7 +41,7 @@
 				</div>
 				<ul>
 					<li><a href="/">Trang chủ</a></li>
-					<li><a href="/allitem">Cửa Hàng</a></li>
+					<li><a href="{{route('allitem')}}">Cửa Hàng</a></li>
 					<li><a href="">Chính Sách</a></li>
 					<li><a href="">Giới Thiệu</a></li>
 					<li><a href="">Liên Hệ</a></li>
@@ -84,8 +84,8 @@
 	</div>
 </body>
 
-<script src="js/jquery-3.4.1.min.js"></script>
-<script src="js/bootstrap3.js"></script>
-<script type="text/javascript" src="js/effect_custom.js"></script>
+<script src="{{asset('js/jquery-3.4.1.min.js')}}"></script>
+<script src="{{asset('js/bootstrap3.js')}}"></script>
+<script type="text/javascript" src="{{asset('js/effect_custom.js')}}"></script>
 
 </html>

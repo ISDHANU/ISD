@@ -16,13 +16,17 @@ class Giay extends Migration
         //
 
         Schema::create('giay', function (Blueprint $table) {
-            $table->bigIncrements('id');
-            $table->string('ma');
-            $table->string('ten');
-            $table->Integer('giatien');
-            $table->Integer('giamgia');
-            $table->string('hinhanh');
-            $table->string('kieu');
+            $table->bigIncrements('Shoes_id');
+            $table->string('Shoes_name');
+            $table->Integer('Column');
+            $table->string('Shoes_description');
+            $table->string('Shoes_size');
+            $table->string('Shoes_color');
+            $table->string('Shoes_image');
+            $table->Integer('Shoes_prices');
+            $table->Integer('Shoes_sale');
+            $table->string('Shoes_code');
+            $table->Integer('Format');
         });
     }
 

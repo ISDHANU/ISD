@@ -9,12 +9,7 @@
 	<!-- <meta http-equiv="X-UA-Compatible" content="IE=edge"> -->
 
 
- 	 <!-- Ionicons -->
-  	<link rel="stylesheet" href="css/ionicons.min.css">
-
     <link rel="stylesheet" href="css/bootstrap3.css">
-  	<link rel="stylesheet" href="css/AdminLTE.min.css">
-  	<link rel="stylesheet" href="css/allskin.min.css">
 
 
   	<!-- Morris chart -->
@@ -29,8 +24,18 @@
   	<link rel="stylesheet" href="css/bootstrap3-wysihtml5.min.css">
 
 
+  	<!-- <link rel="stylesheet" href="css/font-awesome2.min.css"> -->
+  	<link rel="stylesheet" href="css/font-awesome/css/font-awesome.min.css">
 
-	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css">
+ 	 <!-- Ionicons -->
+  	<link rel="stylesheet" href="css/ionicons.min.css">
+
+  	<link rel="stylesheet" href="css/AdminLTE.min.css">
+
+  	<link rel="stylesheet" href="css/allskin.min.css">
+
+	<!-- <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css"> -->
+	<!-- <script src="https://use.fontawesome.com/c95cfee853.js"></script> -->
 
 </head>
 <body class="hold-transition skin-blue sidebar-mini">
@@ -47,9 +52,9 @@
 	    <!-- Header Navbar: style can be found in header.less -->
 	    <nav class="navbar navbar-static-top">
 	      <!-- Sidebar toggle button-->
-	      <a href="#" class="sidebar-toggle fas fa-bars" data-toggle="push-menu" role="button">
-	        <span class="sr-only">Toggle navigation</span>
-	      </a>
+	      	<a href="#" class="sidebar-toggle fas fa-bars" data-toggle="push-menu" role="button">
+	        	<span class="sr-only">Toggle navigation</span>
+	      	</a>
 
 	      <div class="navbar-custom-menu">
 	        <ul class="nav navbar-nav">
@@ -97,7 +102,7 @@
 	          </li>
 	          <!-- Control Sidebar Toggle Button -->
 	          <li>
-	            <a href="#" data-toggle="control-sidebar"><i class="fa fa-gears"></i></a>
+	            <a href="{{route('logout')}}" data-toggle="control-sidebar"><i class="fa fa-gears"></i></a>
 	          </li>
 	        </ul>
 	      </div>
@@ -141,7 +146,7 @@
 	            </span>
 	          </a>
 	          <ul class="treeview-menu">
-	            <li class="active"><a href="/adminallitem"><i class="fa fa-circle-o"></i>Kho Giày</a></li>
+	            <li><a href="/adminallitem"><i class="fa fa-circle-o"></i>Kho Giày</a></li>
 	            <li><a href=""><i class="fa fa-circle-o"></i>Nhập Hàng</a></li>
 	          </ul>
 	        </li>
@@ -153,7 +158,7 @@
 	            </span>
 	          </a>
 	          <ul class="treeview-menu">
-	            <li class="active"><a href="index.html"><i class="fa fa-circle-o"></i>Các Đơn Hàng</a></li>
+	            <li><a href="index.html"><i class="fa fa-circle-o"></i>Các Đơn Hàng</a></li>
 	            <li><a href="index2.html"><i class="fa fa-circle-o"></i>Lịch Sử</a></li>
 	          </ul>
 	        </li>

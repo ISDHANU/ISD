@@ -19,33 +19,13 @@
 		  	<tbody>
 			    <tr>
 			      	<th scope="row" class="table_cart_image">
-			      		husago2
-						<img src="images/husago2.jpg">
+			      		<?php echo $data->Shoes_name ?>
+						<img src="{{asset($data->Shoes_image)}}">
 			      	</th>
 			      	<td>37</td>
-			      	<td>2.000.000đ</td>
+			      	<td><?php echo $data->Shoes_prices ?></td>
 			      	<td>1</td>
-			      	<td>2.000.000đ</td>
-			    </tr>
-			    <tr>
-			      	<th scope="row" class="table_cart_image">
-			      		husago2
-						<img src="images/husago5.jpg">
-			      	</th>
-			      	<td>37</td>
-			      	<td>2.000.000đ</td>
-			      	<td>1</td>
-			      	<td>2.000.000đ</td>
-			    </tr>
-			    <tr>
-			      	<th scope="row" class="table_cart_image">
-			      		husago2
-						<img src="images/husago4.jpg">
-			      	</th>
-			      	<td>37</td>
-			      	<td>2.000.000đ</td>
-			      	<td>1</td>
-			      	<td>2.000.000đ</td>
+			      	<td><?php echo $data->Shoes_prices ?></td>
 			    </tr>
 		  	</tbody>
 		</table>
@@ -54,7 +34,7 @@
 		Giúp chúng tôi hiểu bạn hơn !!
 	</div> -->
 	<div class="sum_">
-		6.000.000đ
+		<?php echo $data->Shoes_prices ?>
 	</div>
 	<div class="title_sum">
 		Tổng: 

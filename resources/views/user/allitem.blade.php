@@ -6,11 +6,12 @@
 	<!-- <img src="images/banner-2.png"> -->
 </div>
 
-<div class="search">
+<form class="search" action="{{route('user_search_item')}}" method="post">
+	{{ csrf_field() }}
 	<div class="col-lg-3">
 		<div class="form-group">
 		  	<select class="form-control" id="sel1">
-		    	<option>Kích Thước</option>
+		    	<option>Kích Thước (tính năng đang cập nhật)</option>
 		    	<option>37</option>
 		    	<option>38</option>
 		    	<option>39</option>
@@ -23,7 +24,7 @@
 	<div class="col-lg-3">
 		<div class="form-group">
 		  	<select class="form-control" id="sel1">
-		    	<option>Thuộc Tính</option>
+		    	<option>Thuộc Tính (tính năng đang cập nhật)</option>
 		    	<option>Trơn</option>
 		    	<option>Vân</option>
 		    	<option>Dây</option>
@@ -32,452 +33,78 @@
 	</div>
 	<div class="col-lg-3">
 		<div class="form-group">
-		  	<select class="form-control" id="sel1">
-		    	<option>Tất Cả</option>
-		    	<option>Mới</option>
-		    	<option>Nổi Bật</option>
-		    	<option>Bán Chạy</option>
-		    	<option>Giảm Giá</option>
+		  	<select class="form-control" id="sel1" name="format">
+		    	<option value="0">Tất Cả</option>
+		    	<option value="1">Mới</option>
+		    	<option value="2">Giảm Giá</option>
+		    	<option value="3">Bán Chạy</option>
+		    	<!-- <option value="4">Nổi Bật</option> -->
 		  	</select>
 		</div> 
 	</div>
 	<div class="col-lg-3">
-		<button type="button" class="btn btn-success search_button">Search</button>
+		<button type="submit" class="btn btn-success search_button">Search</button>
 	</div>
-	
-</div>
+</form>
+
 <div class="bound list_item">
 	<div class="background_"> </div>
 	<div class="row bound_list">
-		<div class="col-lg-3 col-md-6 col-sm-12 bound_item">
-			<div class="item">
-				<div class="offer">
-					<div class="offer_title new">
-						NEW
+		<?php foreach ($data as $key => $value): ?>
+			<div class="col-lg-3 col-md-6 col-sm-12 bound_item">
+				<div class="item">
+					<div class="offer">
+						<?php if ($value->Format == 1): ?>
+							<div class="offer_title new">
+								<?php echo "Mới" ?>
+							</div>
+						<?php elseif ($value->Format == 2): ?>
+							<div class="offer_title sale">
+								<?php echo 'Giảm Giá' ?>
+							</div>
+						<?php elseif ($value->Format == 3): ?>
+							<div class="offer_title hot">
+								<?php echo 'Bán Chạy' ?>
+							</div>
+						<?php endif ?>
 					</div>
-				</div>
 
-				<div class="image">
-					<img src="images/husago2.jpg">
-				</div>
+					<div class="image">
+						<img src="<?php echo $value->Shoes_image; ?>">
+					</div>
 
-				<div class="title">
-					<a href="">HUSAGO 1</a>
-				</div>
+					<div class="title">
+						<a href="/product/<?php echo $value->Shoes_id; ?>"><?php echo $value->Shoes_name; ?></a>
+					</div>
 
-				<div class="cost">
-					<div class="sell">
-						
-						$1.650.000
-					</div>
-					<div class="buy">
-						$1.250.000
-					</div>
-				</div>
+					<div class="cost">
 
-				<div class="more">
-					<div class="view">
-						<a href=""><i class="fas fa-search"></i></a>
+						<?php if ($value->Format != 2): ?>
+							<div class="buy">
+								<?php echo $value->Shoes_prices; ?>
+							</div>
+						<?php elseif ($value->Format == 2): ?>
+							<div class="sell">
+								<?php echo $value->Shoes_sale; ?>
+							</div>
+							<div class="buy">
+								<?php echo $value->Shoes_prices; ?>
+							</div>
+						<?php endif ?>
 					</div>
-					<div class="add">
-						<a href=""><i class="fas fa-shopping-cart"></i></a>
+					<div class="more">
+						<div class="view">
+							<a href=""><i class="fas fa-search"></i></a>
+						</div>
+						<div class="add">
+							<a href=""><i class="fas fa-shopping-cart"></i></a>
+						</div>
 					</div>
-				</div>
 
-			</div>
-		</div>
-		<div class="col-lg-3 col-md-6 col-sm-12 bound_item">
-			<div class="item">
-				<div class="offer">
-					<div class="offer_title sale">
-						SALE
-					</div>
-				</div>
-
-				<div class="image">
-					<img src="images/husago4.jpg">
-				</div>
-
-				<div class="title">
-					<a href="">HUSAGO 1</a>
-				</div>
-
-				<div class="cost">
-					<div class="sell">
-						$30.00
-					</div>
-					<div class="buy">
-						$25.00
-					</div>
-				</div>
-
-				<div class="more">
-					<div class="view">
-						<a href=""><i class="fas fa-search"></i></a>
-					</div>
-					<div class="add">
-						<a href=""><i class="fas fa-shopping-cart"></i></a>
-					</div>
-				</div>
-				
-			</div>
-		</div>
-		<div class="col-lg-3 col-md-6 col-sm-12 bound_item">
-			<div class="item">
-				<div class="offer">
-					<div class="offer_title none">
-						
-					</div>
-				</div>
-				
-				<div class="image">
-					<img src="images/husago5.jpg">
-				</div>
-
-				<div class="title">
-					<a href="">HUSAGO 1</a>
-				</div>
-
-				<div class="cost">
-					<div class="sell">
-						
-					</div>
-					<div class="buy">
-						$25.00
-					</div>
-				</div>
-
-				<div class="more">
-					<div class="view">
-						<a href=""><i class="fas fa-search"></i></a>
-					</div>
-					<div class="add">
-						<a href=""><i class="fas fa-shopping-cart"></i></a>
-					</div>
 				</div>
 			</div>
-		</div>
-		<div class="col-lg-3 col-md-6 col-sm-12 bound_item">
-			<div class="item">
-				<div class="offer">
-					<div class="offer_title sale">
-						SALE
-					</div>
-				</div>
-
-				<div class="image">
-					<img src="images/husago2.jpg">
-				</div>
-
-				<div class="title">
-					<a href="">HUSAGO 1</a>
-				</div>
-
-				<div class="cost">
-					<div class="sell">
-						$30.00
-					</div>
-					<div class="buy">
-						$25.00
-					</div>
-				</div>
-
-				<div class="more">
-					<div class="view">
-						<a href=""><i class="fas fa-search"></i></a>
-					</div>
-					<div class="add">
-						<a href=""><i class="fas fa-shopping-cart"></i></a>
-					</div>
-				</div>
-			</div>
-		</div>
-		<div class="col-lg-3 col-md-6 col-sm-12 bound_item">
-			<div class="item">
-				<div class="offer">
-					<div class="offer_title new">
-						NEW
-					</div>
-				</div>
-
-				<div class="image">
-					<img src="images/husago2.jpg">
-				</div>
-
-				<div class="title">
-					<a href="">HUSAGO 1</a>
-				</div>
-
-				<div class="cost">
-					<div class="sell">
-						
-						$1.650.000
-					</div>
-					<div class="buy">
-						$1.250.000
-					</div>
-				</div>
-
-				<div class="more">
-					<div class="view">
-						<a href=""><i class="fas fa-search"></i></a>
-					</div>
-					<div class="add">
-						<a href=""><i class="fas fa-shopping-cart"></i></a>
-					</div>
-				</div>
-
-			</div>
-		</div>
-		<div class="col-lg-3 col-md-6 col-sm-12 bound_item">
-			<div class="item">
-				<div class="offer">
-					<div class="offer_title sale">
-						SALE
-					</div>
-				</div>
-
-				<div class="image">
-					<img src="images/husago4.jpg">
-				</div>
-
-				<div class="title">
-					<a href="">HUSAGO 1</a>
-				</div>
-
-				<div class="cost">
-					<div class="sell">
-						$30.00
-					</div>
-					<div class="buy">
-						$25.00
-					</div>
-				</div>
-
-				<div class="more">
-					<div class="view">
-						<a href=""><i class="fas fa-search"></i></a>
-					</div>
-					<div class="add">
-						<a href=""><i class="fas fa-shopping-cart"></i></a>
-					</div>
-				</div>
-				
-			</div>
-		</div>
-		<div class="col-lg-3 col-md-6 col-sm-12 bound_item">
-			<div class="item">
-				<div class="offer">
-					<div class="offer_title none">
-						
-					</div>
-				</div>
-				
-				<div class="image">
-					<img src="images/husago5.jpg">
-				</div>
-
-				<div class="title">
-					<a href="">HUSAGO 1</a>
-				</div>
-
-				<div class="cost">
-					<div class="sell">
-						
-					</div>
-					<div class="buy">
-						$25.00
-					</div>
-				</div>
-
-				<div class="more">
-					<div class="view">
-						<a href=""><i class="fas fa-search"></i></a>
-					</div>
-					<div class="add">
-						<a href=""><i class="fas fa-shopping-cart"></i></a>
-					</div>
-				</div>
-			</div>
-		</div>
-		<div class="col-lg-3 col-md-6 col-sm-12 bound_item">
-			<div class="item">
-				<div class="offer">
-					<div class="offer_title sale">
-						SALE
-					</div>
-				</div>
-
-				<div class="image">
-					<img src="images/husago2.jpg">
-				</div>
-
-				<div class="title">
-					<a href="">HUSAGO 1</a>
-				</div>
-
-				<div class="cost">
-					<div class="sell">
-						$30.00
-					</div>
-					<div class="buy">
-						$25.00
-					</div>
-				</div>
-
-				<div class="more">
-					<div class="view">
-						<a href=""><i class="fas fa-search"></i></a>
-					</div>
-					<div class="add">
-						<a href=""><i class="fas fa-shopping-cart"></i></a>
-					</div>
-				</div>
-			</div>
-		</div>
-		<div class="col-lg-3 col-md-6 col-sm-12 bound_item">
-			<div class="item">
-				<div class="offer">
-					<div class="offer_title new">
-						NEW
-					</div>
-				</div>
-
-				<div class="image">
-					<img src="images/husago2.jpg">
-				</div>
-
-				<div class="title">
-					<a href="">HUSAGO 1</a>
-				</div>
-
-				<div class="cost">
-					<div class="sell">
-						
-						$1.650.000
-					</div>
-					<div class="buy">
-						$1.250.000
-					</div>
-				</div>
-
-				<div class="more">
-					<div class="view">
-						<a href=""><i class="fas fa-search"></i></a>
-					</div>
-					<div class="add">
-						<a href=""><i class="fas fa-shopping-cart"></i></a>
-					</div>
-				</div>
-
-			</div>
-		</div>
-		<div class="col-lg-3 col-md-6 col-sm-12 bound_item">
-			<div class="item">
-				<div class="offer">
-					<div class="offer_title sale">
-						SALE
-					</div>
-				</div>
-
-				<div class="image">
-					<img src="images/husago4.jpg">
-				</div>
-
-				<div class="title">
-					<a href="">HUSAGO 1</a>
-				</div>
-
-				<div class="cost">
-					<div class="sell">
-						$30.00
-					</div>
-					<div class="buy">
-						$25.00
-					</div>
-				</div>
-
-				<div class="more">
-					<div class="view">
-						<a href=""><i class="fas fa-search"></i></a>
-					</div>
-					<div class="add">
-						<a href=""><i class="fas fa-shopping-cart"></i></a>
-					</div>
-				</div>
-				
-			</div>
-		</div>
-		<div class="col-lg-3 col-md-6 col-sm-12 bound_item">
-			<div class="item">
-				<div class="offer">
-					<div class="offer_title none">
-						
-					</div>
-				</div>
-				
-				<div class="image">
-					<img src="images/husago5.jpg">
-				</div>
-
-				<div class="title">
-					<a href="">HUSAGO 1</a>
-				</div>
-
-				<div class="cost">
-					<div class="sell">
-						
-					</div>
-					<div class="buy">
-						$25.00
-					</div>
-				</div>
-
-				<div class="more">
-					<div class="view">
-						<a href=""><i class="fas fa-search"></i></a>
-					</div>
-					<div class="add">
-						<a href=""><i class="fas fa-shopping-cart"></i></a>
-					</div>
-				</div>
-			</div>
-		</div>
-		<div class="col-lg-3 col-md-6 col-sm-12 bound_item">
-			<div class="item">
-				<div class="offer">
-					<div class="offer_title sale">
-						SALE
-					</div>
-				</div>
-
-				<div class="image">
-					<img src="images/husago2.jpg">
-				</div>
-
-				<div class="title">
-					<a href="">HUSAGO 1</a>
-				</div>
-
-				<div class="cost">
-					<div class="sell">
-						$30.00
-					</div>
-					<div class="buy">
-						$25.00
-					</div>
-				</div>
-
-				<div class="more">
-					<div class="view">
-						<a href=""><i class="fas fa-search"></i></a>
-					</div>
-					<div class="add">
-						<a href=""><i class="fas fa-shopping-cart"></i></a>
-					</div>
-				</div>
-			</div>
-		</div>
+		<?php endforeach ?>
 	</div>
+	{!! $data->links() !!}
 </div>
 @endsection()

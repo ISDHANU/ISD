@@ -19,10 +19,15 @@
 			              <!-- <h3 class="box-title">Tất Cả Sản Phẩm</h3> -->
 			              <form class="search" action="{{route('admin_search_item')}}" method="post">
 								{{ csrf_field() }}
-								<div class="col-lg-3">
+								<div class="col-lg-4">
+									<div class="form-group">
+										<input type="" name="" class="form-input" style="width: 100%;height: 34px;border-color: #d2d6de">
+									</div> 
+								</div>
+								<div class="col-lg-2">
 									<div class="form-group">
 									  	<select class="form-control" id="sel1">
-									    	<option>Kích Thước (tính năng đang cập nhật)</option>
+									    	<option>Kích Thước</option>
 									    	<option>37</option>
 									    	<option>38</option>
 									    	<option>39</option>
@@ -42,7 +47,7 @@
 									  	</select>
 									</div> 
 								</div>
-								<div class="col-lg-3">
+								<div class="col-lg-2">
 									<div class="form-group">
 									  	<select class="form-control" id="sel1" name="format">
 									    	<option value="0">Tất Cả</option>
@@ -53,60 +58,21 @@
 									  	</select>
 									</div> 
 								</div>
-								<div class="col-lg-3">
+								<div class="col-lg-1">
 									<button type="submit" class="btn btn-success search_button">Search</button>
 								</div>
 							</form>
 			            </div>
 			            <!-- /.box-header -->
 			            <div class="box-body">
-			              <table id="example2" class="table table-bordered table-hover">
-			                <thead>
-			                	<tr>
-			                  		<th>ID</th>
-			                  		<th>Tên Giày</th>
-			                  		<th>Số Lượng</th>
-			                  		<th>Hình Ảnh</th>
-			                  		<th>Giá Tiền</th>
-			                  		<th>Giảm Giá</th>
-			                  		<th>Định Dạng</th>
-			                  		<th>Truy Cập</th>
-			                  		<th>Sửa</th>
-			                	</tr>
-			                </thead>
-			                <tbody>
-
-			         <?php foreach ($data as $value): ?>
-		         		<tr>
-			        		<td><?php echo $value->Shoes_id; ?></td>
-				            <td><?php echo $value->Shoes_name; ?></td>
-				            <td><?php echo $value->Column; ?></td>
-				            <td>
-				            	<img src="{{asset($value->Shoes_image)}}" style="width: 100px;">
-				            	<!-- <?php echo $value->Shoes_image; ?> -->
-				            		
-				            </td>
-				            <td><?php echo $value->Shoes_prices; ?></td>
-				            <td><?php echo $value->Shoes_sale; ?></td>
-				            <td>
-				            	<?php 
-					            	if ($value->Format == 0){
-					            		echo "Cũ";
-						            } elseif ($value->Format == 1) {
-						            	echo "Mới";
-						            }elseif ($value->Format == 3) {
-						            	echo "Bán Chạy";
-						            }else{
-						            	echo "Giảm Giá";
-						            }
-					            ?>
-				            </td>
-				            <td><a href="/product/<?php echo $value->Shoes_id; ?>">Link</a></td>
-			        	</tr>
-			        <?php endforeach ?>
-			                </tbody>
-			                <tfoot>
-			              </table>
+			            	<div class="row">
+			            		<?php foreach ($data as $key => $value): ?>
+				            		<div class="col-md-3" style="height: 300px;background-color: rgba(0, 0, 0, .3);border: 1px solid black">
+				            			
+				            		</div>
+				            	<?php endforeach ?>
+			            	</div>
+			            	
 			            </div>
 			            <!-- /.box-body -->
 			          </div>
